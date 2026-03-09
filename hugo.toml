@@ -1,4 +1,4 @@
-baseurl = "https://example.com"
+baseurl = "https://myblog-alpha-sooty.vercel.app/"
 defaultContentLanguage = "en"
 languageCode = "en"
 title = "Hugo Theme Dream"
