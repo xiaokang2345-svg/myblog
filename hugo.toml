@@ -1,8 +1,11 @@
-baseurl = "https://myblog-alpha-sooty.vercel.app/"
+baseURL = "https://myblog-alpha-sooty.vercel.app/"
 defaultContentLanguage = "en"
 languageCode = "en"
 title = "Hugo Theme Dream"
 theme = "dream"
+
+publishDir = "public"  # ✅ 新增
+canonifyURLs = true    # ✅ 新增
 
 # [services]
 # [services.disqus]
