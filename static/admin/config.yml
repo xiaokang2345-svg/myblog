@@ -1,22 +1,19 @@
+backend:
+  name: github
+  repo: xiaokang2345-svg/myblog   # ⚠️ 替换为你实际的仓库名！
+  branch: main
 
-	  
-	  backend:
-	    name: github
-	    repo: xiaokang2345-svg/myblog # 替换为您的 GitHub 仓库
-	    branch: main # 或 master
-	    site_domain: https://kaimaoxing.com # 您的域名
-	    base_url: https://kaimaoxing.com # 用于 OAuth 回调
-	    auth_endpoint: /admin/auth # Vercel 重写规则需要
-	  
-	  media_folder: "static/uploads" # 上传图片存储路径
-	  public_folder: "/uploads" # 公共访问路径
-	  
-	  collections:
-	    - name: "blog"
-	      label: "Blog"
-	      folder: "content/posts"
-	      create: true
-	      fields:
-	        - {label: "Title", name: "title", widget: "string"}
-	        - {label: "Publish Date", name: "date", widget: "datetime"}
-	        - {label: "Body", name: "body", widget: "markdown"}
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "博客文章"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "date", widget: "datetime"}
+      - {label: "草稿", name: "draft", widget: "boolean", default: false}
+      - {label: "正文", name: "body", widget: "markdown"}
