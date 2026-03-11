@@ -3,9 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
+  <title>Decap CMS</title>
+  <!-- 关键：使用官方最新CDN -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // 可选：自定义预览组件
+    CMS.registerPreviewStyle('/css/main.css');
+  </script>
 </head>
 <body>
+  <!-- Decap CMS 会自动挂载到这个div -->
+  <div id="decap-cms"></div>
 </body>
 </html>
