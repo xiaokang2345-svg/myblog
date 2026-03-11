@@ -1,0 +1,23 @@
+{
+  "rewrites": [
+    { "source": "/admin/:path*", "destination": "/admin/index.html" },
+    { "source": "/uploads/:path*", "destination": "/static/uploads/:path*" }
+  ],
+  "redirects": [
+    { "source": "/admin", "destination": "/admin/", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/admin/:path*",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' https://unpkg.zhimg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;" }
+      ]
+    }
+  ],
+  "functions": {
+    "api/auth.js": {
+      "maxDuration": 10
+    }
+  }
+}
