@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: your-github-username/your-repo-name # 替换为您的 GitHub 仓库
+  repo: xiaokang2345-svg/myblog # 替换为您的 GitHub 仓库
   branch: main # 或 master
   site_domain: https://kaimaoxing.com # 您的域名
   base_url: https://kaimaoxing.com # 用于 OAuth 回调
