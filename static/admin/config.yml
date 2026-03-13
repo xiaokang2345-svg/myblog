@@ -1,20 +1,27 @@
+
+
+
 backend:
   name: github
-  repo: xiaokang2345-svg/myblog # 替换为您的 GitHub 仓库
-  branch: main # 或 master
-  site_domain: https://kaimaoxing.com # 您的域名
-  base_url: https://kaimaoxing.com # 用于 OAuth 回调
-  auth_endpoint: /admin/auth # Vercel 重写规则需要
+  repo: xiaokang2345-svg/myblog # 你的GitHub仓库，格式：用户名/仓库名
+  branch: main # 分支名
+  auth_type: implicit # 使用隐式授权
+  app_id: Ov23liwy95JBV2tp5tVY # 你的GitHub OAuth App的Client ID
+  # 注意：使用隐式授权时，不需要client_secret，因为它在客户端是不安全的。
 
-media_folder: "static/uploads" # 上传图片存储路径
-public_folder: "/uploads" # 公共访问路径
+# 媒体文件存储路径
+media_folder: "static/images/uploads" # 上传的图片将保存在这个目录
+public_folder: "/images/uploads" # 在网站中访问的路径
 
+# 内容集合（根据你的Hugo内容类型配置）
 collections:
-  - name: "blog"
+  - name: "blog" # 用于文章
     label: "Blog"
-    folder: "content/posts"
-    create: true
-    fields:
+    folder: "content/blog" # Hugo中博客文章的位置
+    create: true # 允许在CMS中创建新文章
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # 文件名格式
+    fields: # 每个文章的字段
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
+  # 你可以添加更多集合，如页面等

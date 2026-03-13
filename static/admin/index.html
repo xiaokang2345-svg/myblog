@@ -1,13 +1,34 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>内容管理 | Decap CMS</title>
-  <!-- ✅ 替换为国内镜像 -->
-  <script src="https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
+  <!-- Include the Decap CMS JavaScript file -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-  <div id="decap-cms"></div>
+  <!-- Include the script that builds the page and powers Decap CMS -->
+  <script>
+    // 初始化Decap CMS
+    CMS.init({
+      config: {
+        // 你的config.yml中的配置
+        backend: {
+          name: 'github',
+          repo: 'xiaokang2345-svg/myblog', // 例如：octocat/my-repo
+          branch: 'main', // 分支，默认是main
+          auth_type: 'implicit', // 使用隐式授权
+          app_id: 'Ov23liwy95JBV2tp5tVY', // 从GitHub OAuth App获取
+          auth_endpoint: 'https://api.netlify.com/auth/done', // 使用Netlify的认证代理，或者你可以自己搭建一个
+          // 注意：如果你不想使用Netlify的认证代理，你可以使用GitHub的授权端点，但是需要处理回调。
+          // 这里我们使用Netlify的认证代理，因为它简化了流程。但是，如果你不想依赖Netlify，可以自己搭建一个。
+          // 另一种方法是使用Authorization Code Grant，但需要服务器端。
+        },
+        // 其他配置，如media_folder、collections等
+        // 这里需要根据你的Hugo项目结构来配置
+      }
+    });
+  </script>
 </body>
 </html>
