@@ -1,26 +1,70 @@
+# static/admin/config.yml
+
 backend:
-  name: github
-  repo: xiaokang2345-svg/myblog  # ←【必改】替换为你的GitHub仓库（例：kaimaoxing/kaimaoxing.com）
-  branch: main                        # ←【必改】确认你的默认分支（main 或 master）
-  auth_endpoint: /api/auth            # 安全代理路径（关键！）
-  site_domain: https://kaimaoxing.com
-  base_url: https://kaimaoxing.com
+  name: git-gateway
+  branch: main  # 你的 GitHub 分支名
+  repo: xiaokang2345-svg/myblog  # 格式：用户名/仓库名
+  
+# 使用 GitHub 作为后端（推荐）
+# 或者使用 git-gateway（需要 Netlify Identity）
+# 对于 Vercel，我们使用 GitHub 后端
 
-media_folder: "static/uploads"        # 上传图片存储路径
-public_folder: "/uploads"             # 网站访问路径
+# 媒体文件存储设置
+media_folder: "static/images/uploads"  # 上传的图片保存路径
+public_folder: "/images/uploads"       # 网站中访问的路径
 
+# 站点信息
+site_url: "https://kaimaoxing.com/"    # 你的网站域名
+display_url: "https://kaimaoxing.com/"
+logo_url: "/images/logo.png"           # CMS 界面 Logo
+
+# 内容集合配置（根据你的 Hugo 内容结构）
 collections:
-  - name: "posts"
+  # 1. 博客文章集合
+  - name: "blog"
     label: "博客文章"
-    folder: "content/posts"
+    folder: "content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "发布日期", name: "date", widget: "datetime"}
-      - {label: "草稿", name: "draft", widget: "boolean", default: false}
-<<<<<<< HEAD
-      - {label: "正文", name: "body", widget: "markdown"}
-=======
-      - {label: "正文", name: "body", widget: "markdown"}
->>>>>>> origin/main
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime" }
+      - { label: "作者", name: "author", widget: "string", default: "管理员" }
+      - { label: "分类", name: "categories", widget: "list", default: ["未分类"] }
+      - { label: "标签", name: "tags", widget: "list" }
+      - { label: "摘要", name: "description", widget: "text", required: false }
+      - { label: "特色图片", name: "image", widget: "image", required: false }
+      - { label: "正文内容", name: "body", widget: "markdown" }
+      - { label: "草稿", name: "draft", widget: "boolean", default: false }
+
+  # 2. 页面集合
+  - name: "pages"
+    label: "页面"
+    folder: "content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "页面类型", name: "type", widget: "hidden", default: "page" }
+      - { label: "正文内容", name: "body", widget: "markdown" }
+
+  # 3. 配置集合（用于管理站点设置）
+  - name: "config"
+    label: "站点配置"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "config/_default/params.toml"
+        label: "参数配置"
+        name: "params"
+        fields:
+          - { label: "站点标题", name: "title", widget: "string" }
+          - { label: "站点描述", name: "description", widget: "text" }
+          - { label: "作者", name: "author", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image", required: false }
+          - { label: "社交媒体链接", name: "social", widget: "object", fields: [
+              { label: "GitHub", name: "github", widget: "string", required: false },
+              { label: "Twitter", name: "twitter", widget: "string", required: false },
+              { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+            ]}
