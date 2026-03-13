@@ -1,4 +1,4 @@
-baseURL = "https://kaimaoxing.com/"
+baseURL = "myblog-alpha-sooty.vercel.app"
 defaultContentLanguage = "en"
 languageCode = "en"
 title = "Hugo Theme Dream"
