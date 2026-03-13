@@ -1,4 +1,4 @@
-baseURL = "https://github.com/xiaokang2345-svg/myblog"
+baseURL = "https://xiaokang2345-svg.github.io/myblog"
 defaultContentLanguage = "en"
 languageCode = "en"
 title = "Hugo Theme Dream"
