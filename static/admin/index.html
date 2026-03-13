@@ -1,27 +1,30 @@
-<!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>内容管理系统</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>内容管理 | Decap CMS</title>
+  <!-- ✅ 国内双CDN备用方案（自动降级） -->
+  <script>
+    // 优先尝试 jsDelivr（国内快），失败则用 unpkg
+    const loadScript = (src, fallback) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onerror = () => {
+        if (fallback) {
+          console.log('主CDN失败，切换备用CDN');
+          loadScript(fallback);
+        }
+      };
+      document.head.appendChild(script);
+    };
+    // 优先 jsDelivr（国内访问快），备用 unpkg
+    loadScript(
+      'https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js',
+      'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js'
+    );
+  </script>
 </head>
 <body>
-  <script>
-    // 初始化 Decap CMS
-    Decap.init({
-      config: {
-        // 配置在 config.yml 中
-      }
-    });
-  </script>
+  <div id="decap-cms"></div>
 </body>
-</html>
+</html
