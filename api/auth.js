@@ -3,7 +3,7 @@
 // 路径：api/auth.js
 // ========================================
 export default async (req, res) => {
-  const { Ov23liwy95JBV2tp5tVY, f8e7a2185107236606de56d79b0d499022dd0102, URL } = process.env;
+  const { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, URL } = process.env;
   
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -23,8 +23,8 @@ export default async (req, res) => {
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        client_id: GITHUB_CLIENT_ID,
-        client_secret: GITHUB_CLIENT_SECRET,
+        client_id: Ov23liwy95JBV2tp5tVY,
+        client_secret: f8e7a2185107236606de56d79b0d499022dd0102,
         code
       })
     });
