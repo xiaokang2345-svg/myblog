@@ -23,8 +23,8 @@ export default async (req, res) => {
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        client_id: GITHUB_CLIENT_ID,
-        client_secret: GITHUB_CLIENT_SECRET,
+        client_id: Ov23liwy95JBV2tp5tVY,
+        client_secret: f8e7a2185107236606de56d79b0d499022dd0102,
         code
       })
     });
