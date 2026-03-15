@@ -1,0 +1,11 @@
+{
+  "name": "my-hugo-blog",
+  "version": "1.0.0",
+  "description": "Hugo blog with Decap CMS",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
