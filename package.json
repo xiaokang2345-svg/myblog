@@ -1,11 +1,12 @@
 {
-  "name": "xiaokang2345-svg/myblog",
+  "name": "myblog",
   "version": "1.0.0",
   "description": "Hugo blog with Decap CMS",
+  "type": "module",
   "dependencies": {
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^3.3.2"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   }
 }
