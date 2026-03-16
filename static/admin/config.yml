@@ -5,7 +5,7 @@ backend:
   branch: main
   auth_endpoint: /api/auth
   site_domain: https://kaimaoxing.com
-  base_url: http://kaimaoxing.com  # 🔑 关键！必须添加
+  base_url: https://kaimaoxing.com  # 🔑 关键！必须添加
 media_folder: static/img
 public_folder: /img
 collections:
