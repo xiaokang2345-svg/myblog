@@ -1,22 +1,18 @@
+# static/admin/config.yml（完整正确配置）
 backend:
   name: github
-  repo: xiaokang2345-svg/myblog  # ←【必改】替换为你的GitHub仓库（例：kaimaoxing/kaimaoxing.com）
-  branch: main                        # ←【必改】确认你的默认分支（main 或 master）
-  auth_endpoint: /api/auth            # 安全代理路径（关键！）
+  repo: xiaokang2345-svg/myblog
+  branch: main
+  auth_endpoint: /api/auth
   site_domain: https://kaimaoxing.com
-  base_url: https://kaimaoxing.com
-
-media_folder: "static/uploads"        # 上传图片存储路径
-public_folder: "/uploads"             # 网站访问路径
-
+  base_url: https://kaimaoxing.com  # 🔑 关键！必须添加
+media_folder: static/img
+public_folder: /img
 collections:
-  - name: "posts"
-    label: "博客文章"
-    folder: "content/posts"
+  - name: posts
+    label: Posts
+    folder: content/posts
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "发布日期", name: "date", widget: "datetime"}
-      - {label: "草稿", name: "draft", widget: "boolean", default: false}
-      - {label: "正文", name: "body", widget: "markdown"}
+      - { label: Title, name: title, widget: string }
+      - { label: Body, name: body, widget: markdown }
