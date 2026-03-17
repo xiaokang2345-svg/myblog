@@ -1,30 +1,14 @@
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>内容管理 | Decap CMS</title>
-  <!-- ✅ 国内双CDN备用方案（自动降级） -->
-  <script>
-    // 优先尝试 jsDelivr（国内快），失败则用 unpkg
-    const loadScript = (src, fallback) => {
-      const script = document.createElement('script');
-      script.src = src;
-      script.onerror = () => {
-        if (fallback) {
-          console.log('主CDN失败，切换备用CDN');
-          loadScript(fallback);
-        }
-      };
-      document.head.appendChild(script);
-    };
-    // 优先 jsDelivr（国内访问快），备用 unpkg
-    loadScript(
-      'https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js',
-      'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js'
-    );
-  </script>
-</head>
-<body>
-  <div id="decap-cms"></div>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+    <!-- Include the script that enables Netlify Identity on this page. -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Decap CMS -->
+    <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.6.2/dist/decap-cms.js" integrity="sha256-WxCg7VZgMojBMxL13SErQg75vziDFV937n92ia4vijY=" crossorigin="anonymous"></script>
+  </body>
 </html>
