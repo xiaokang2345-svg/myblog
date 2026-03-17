@@ -1,9 +1,15 @@
+# static/admin/config.yml（完整正确配置）
 backend:
-  name: git-gateway
-  branch: master
-publish_mode: editorial_workflow
+  name: github
+  repo: xiaokang2345-svg/myblog
+  branch: main
+  auth_endpoint: /api/auth
+  site_domain: https://kaimaoxing.com
+  base_url: https://kaimaoxing.com  # 🔑 关键！必须添加
 media_folder: static/img
 public_folder: /img
+	  
+	  
 collections:
   - name: 'post'
     label: 'Post'
